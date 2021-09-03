@@ -1,0 +1,15 @@
+GET http://localhost:4000/tables
+
+###
+
+PUT http://localhost:4000/tables/table5
+content-type: application/json
+
+{"id":"8","name":"table1","seats":"18","avalible":"true"}
+
+###
+
+POST http://localhost:4000/tables
+content-type: application/json
+
+{"id":"1","name":"table1","seats":"4","avalible":"true"}
