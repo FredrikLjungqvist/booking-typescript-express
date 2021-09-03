@@ -1,5 +1,5 @@
-
 import express from "express";
+import {router} from "./routes/table";
 import * as dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
@@ -17,6 +17,7 @@ if (!process.env.PORT) {
  app.use(helmet())
  app.use(cors())
  app.use(express.json())
+ app.use(router)
 
  app.listen(PORT, ()=> {
      console.log(`Lyssnar på port: ${PORT}`)
