@@ -1,5 +1,5 @@
 export interface Table {
-    id: number
+    id: string
     name: string
     seats: number
     avalible: boolean
@@ -7,8 +7,5 @@ export interface Table {
   
 
 
-  export interface Booking{
-      id: number
-      date: Date
-  }
+  
 

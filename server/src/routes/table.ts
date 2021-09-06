@@ -29,11 +29,11 @@ router.post("/tables", (req:Request, res:Response)=>{
 })
 
 //Update
-router.put("/tables/:name", (req:Request, res:Response)=>{
-    const id:string = req.params.name
+router.put("/tables/:id", (req:Request, res:Response)=>{
+    const id:string = req.params.id
     console.log(id)
     try {
-        const table = {name:id, seats:req.body.seats}
+        const table = {id:id, seats:req.body.seats}
         const tableToUpdate = services.updateTable(table)
         
 
@@ -44,12 +44,13 @@ router.put("/tables/:name", (req:Request, res:Response)=>{
 })
 
 //Delete
-router.delete("/tables/:name", (req:Request, res:Response)=>{
-    const id = {name: req.params.name}
+router.delete("/tables/:id", (req:Request, res:Response)=>{
+    const id = {id: req.params.id}
+    console.log(id)
     try {
         const tableToDelete = services.deleteTable(id)
         
-        res.status(201).json(tableToDelete)
+        res.status(202).json(tableToDelete)
     } catch (error) {
         res.status(500).send(error.message)
     }

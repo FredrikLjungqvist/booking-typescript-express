@@ -5,12 +5,12 @@ console.log("i services")
 export const getAlltables = (): Table[] => {
     let getAllTables = fs.readFileSync(__dirname + "/tables.json", "utf8");
     let allTables:Table[] = JSON.parse(getAllTables)
-    
+    console.log("i gett all tbles")
     
     return allTables
 
 }
-
+getAlltables()
 //Save table
 export const saveTable = (table:Table[]): void => {
     
@@ -30,23 +30,28 @@ export const addTable =  (table:Table): Table  =>{
     return table
 }
 //Update Table
-export const updateTable = (table:Pick<Table, "name" | "seats">): Pick<Table, "name" | "seats"> =>{
+export const updateTable = (table:Pick<Table, "id" | "seats">): Pick<Table, "id" | "seats"> =>{
     
     let allTables = getAlltables()
-    let index = allTables.findIndex((name)=>name.name===table.name)
+    let index = allTables.findIndex((name)=>name.id===table.id)
     const result = index > -1 ? allTables[index].seats = table.seats : console.error("Det gick inte att uppdatera")
   
     saveTable(allTables)
-    return {name: table.name, seats:table.seats}
+    return {id: table.id, seats:table.seats}
+    
+}
+
+//Delete
+export const deleteTable = (table:Pick<Table, "id">): void =>{
+
+    let allTables = getAlltables()
+    let index = allTables.findIndex((name)=>name.id===table.id)
+    console.log(table.id + " id delete")
+    index > -1 ? allTables.splice(index, 1) : console.error("Det gick inte att ta bort bordet")
+    console.log(index + " index")
+    saveTable(allTables)
     
 }
 
 
-export const deleteTable = (table:Pick<Table, "name">): void =>{
-
-    let allTables = getAlltables()
-    let index = allTables.findIndex((name)=>name.name===table.name)
-    index > -1 ? allTables.splice(index, 1) : console.error("Det gick inte att ta bort bordet")
-
-}
 
