@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import * as services from "../services/table"
 import { Table } from "../interface/table";
+import * as servicesRes from "../services/reservation"
 
 export const router = express.Router();
 
@@ -9,7 +10,7 @@ router.get("/tables", (req:Request, res:Response)=>{
     try {
         const tables = services.getAlltables()
         res.status(200).send(tables)
-    } catch (error) {
+    } catch (error:any) {
         res.status(200).send(error.message)
     }
 })
@@ -23,34 +24,36 @@ router.post("/tables", (req:Request, res:Response)=>{
         
         res.status(201).json(newTable)
         console.log(newTable)
-    } catch (error) {
+    } catch (error:any) {
         res.status(500).send(error.message)
     }
 })
 
 //Update
-router.put("/tables/:name", (req:Request, res:Response)=>{
-    const id:string = req.params.name
+router.put("/tables/:id", (req:Request, res:Response)=>{
+    const id:string = req.params.id
     console.log(id)
     try {
-        const table = {name:id, seats:req.body.seats}
+        const table = {id:id, available:false}
         const tableToUpdate = services.updateTable(table)
         
 
         res.status(201).json(tableToUpdate)
-    } catch (error) {
+    } catch (error:any) {
         res.status(500).send(error.message)
     }
 })
 
 //Delete
-router.delete("/tables/:name", (req:Request, res:Response)=>{
-    const id = {name: req.params.name}
+router.delete("/tables/:id", (req:Request, res:Response)=>{
+    const id = {id: req.params.id}
+    console.log(id)
     try {
         const tableToDelete = services.deleteTable(id)
         
-        res.status(201).json(tableToDelete)
-    } catch (error) {
+        res.status(202).json(tableToDelete)
+    } catch (error:any) {
         res.status(500).send(error.message)
     }
 })
+
