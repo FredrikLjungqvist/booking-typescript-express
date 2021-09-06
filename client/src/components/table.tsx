@@ -1,12 +1,14 @@
-import dotenv from "dotenv"
 import React from "react"
 
 type Props = TableProps & {
     
+    bookTable: (id: string) => void
     deleteTable: (_id: string) => void
+    
 }
 
-const TableItem: React.FC<Props> = ({table, deleteTable}) => {
+const bookedDateDisplay:string = new Date().toLocaleDateString('se-SE')
+const TableItem: React.FC<Props> = ({table, bookTable, deleteTable}) => {
  
   
   return (
@@ -24,6 +26,17 @@ const TableItem: React.FC<Props> = ({table, deleteTable}) => {
         >
           Delete
         </button>
+        <button
+          onClick={() => bookTable(table.id)}
+          className={!table.available ? `hide-button` : 'Card--button__done'}
+        >
+          Book
+        </button>
+        <p
+        className={table.available ?  `hide-button` : 'Card--button__done'}
+        >Bokat: {bookedDateDisplay}</p>
+        
+       
       </div>
     </div>
   )

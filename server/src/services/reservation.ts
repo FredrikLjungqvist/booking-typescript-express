@@ -39,6 +39,6 @@ let table = {
     id: "1",
     name: "table5",
     seats: 5,
-    avalible: true
+    available: true
 }
  

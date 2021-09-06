@@ -2,7 +2,7 @@ export interface Table {
     id: string
     name: string
     seats: number
-    avalible: boolean
+    available: boolean
   }
   
 

@@ -106,8 +106,7 @@ body {
     margin: 0.3rem 1rem 0 0;
 }
 
-.Form label {
-}
+
 
 .Form button {
     background: #ff9900;
@@ -118,10 +117,7 @@ body {
     border: none;
 }
 
-.line-through {
-    text-decoration: line-through;
-    color: #777 !important;
-}
+
 
 .hide-button {
     display: none;

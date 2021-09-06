@@ -14,7 +14,7 @@ routerReservation.post("/reservation", (req:Request, res:Response)=>{
         
         res.status(201).json(newBooking)
         console.log(newBooking)
-    } catch (error) {
+    } catch (error:any) {
         res.status(500).send(error.message)
     }
 })
