@@ -1,25 +1,27 @@
+// Get all tables
 GET http://localhost:4000/tables
 
 ###
+// Book table 2
+PUT http://localhost:4000/tables/491df4f6-4527-4a17-af0f-eb0b2aa55b81
 
-PUT http://localhost:4000/tables/3
 content-type: application/json
 
-{"id":"8","name":"table8","seats":"18","available":"true"}
+
 
 ###
-
+// Add a new table
 POST http://localhost:4000/tables
 content-type: application/json
 
-{"name":"Table 5","seats":"8","available":"true"}
+{"name":"Table 7","seats":"8","available":"true"}
 
 ###
-
-DELETE http://localhost:4000/tables/2
+// Delete a table "test"
+DELETE http://localhost:4000/tables/1959bda4-1136-4c25-90f2-ca7dc1a7a1f9
 
 ###
-
+// Testing coming functions
 POST http://localhost:4000/reservation
 content-type: application/json
 

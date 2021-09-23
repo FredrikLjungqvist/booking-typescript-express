@@ -14,7 +14,7 @@ interface Fact{
     useEffect(()=>{
     axios.get('https://catfact.ninja/facts?limit=5')
     .then(res=>{
-        console.log(res)
+        
         setFacts(res.data.data)
     })
     .catch(err=>{

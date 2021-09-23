@@ -2,8 +2,9 @@ import {Reservation} from "../interface/reservation"
 import {Table} from "../interface/table"
 import fs from "fs"
 import { v4 as uuidv4 } from 'uuid';
+import uuid from 'uuid'
 
-console.log("i res")
+
 //Get all reservations
 
 export const getAllBookings = (): Reservation[]  => {

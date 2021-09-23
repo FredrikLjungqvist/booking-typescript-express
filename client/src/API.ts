@@ -53,7 +53,7 @@ export const updateTable = async(_id:string): Promise<AxiosResponse<ApiDataTable
         const updateTable:AxiosResponse<ApiDataTable> = await axios.put(
             `${url}/tables/${_id}`
         )
-        console.log(updateTable)
+        
         return updateTable
     } catch (error:any) {
         throw new Error(error)
@@ -75,7 +75,7 @@ export const bookTable = async(id:string): Promise<AxiosResponse<ApiDataBooking>
 export const getCatData = async():Promise<AxiosResponse<ApiCatFact>| undefined> => {
     try {
         const fact:AxiosResponse<ApiCatFact> = await axios.get("https://catfact.ninja/fact")
-        console.log(fact)
+        
         return fact
     } catch (error:any) {
         throw new Error(error)

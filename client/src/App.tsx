@@ -2,7 +2,6 @@ import React, { useEffect, useState, FunctionComponent } from 'react'
 import { getTable, postTable, deleteTable, updateTable, bookTable, getCatData } from './API'
 import TableItem from './components/table'
 import AddTable from './components/addTable'
-import { JsxElement } from 'typescript'
 import CatFact from './components/catFact'
 
 

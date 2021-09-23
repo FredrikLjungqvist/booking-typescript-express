@@ -5,7 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import { routerReservation } from "./routes/reservations";
 dotenv.config();
-console.log(process.env + "porten")
+
 
 if (!process.env.PORT) {
     process.exit(1);
